@@ -1,0 +1,16 @@
+@use '../utils';
+
+$bg-jumbo-container: utils.$light-white-100 !default;
+
+.l-box {
+  background-color: utils.$white-100;
+  border: 1px solid utils.$gray-10;
+  border-radius: 0.5rem;
+}
+
+.l-jumbo-container {
+  background-color: $bg-jumbo-container;
+  margin: 0 auto;
+  max-width: 90em;
+  min-height: 100vh;
+}

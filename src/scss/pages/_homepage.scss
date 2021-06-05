@@ -1,0 +1,125 @@
+@use '../utils';
+@use '../base';
+@use '../layout';
+
+.header {
+  background-image: url('../assets/images/image-hero-mobile.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vw;
+  max-height: 400px;
+  min-height: 300px;
+
+  @include utils.respond-to('phone-up') {
+    background-image: url('../assets/images/image-hero-desktop.jpg');
+  }
+}
+
+.c-main-nav {
+  $main-nav: &;
+  padding: 2rem 1.5rem;
+  position: relative;
+  z-index: 1;
+
+  @include utils.respond-to('phone-up') {
+    padding: 3rem 2.5rem;
+  }
+
+  @include utils.respond-to('tablet-up') {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 69.375em; /* 1110px */
+  }
+
+  &.is-toggled {
+    &::before {
+      background: linear-gradient(
+        180deg,
+        utils.$black-100 0%,
+        utils.$white-0 100%
+      );
+      bottom: 0;
+      content: '';
+      height: 100vh;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+
+      @include utils.respond-to('tablet-up') {
+        display: none;
+      }
+    }
+  }
+
+  .l-main-nav-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icons {
+    cursor: pointer;
+
+    @include utils.respond-to('tablet-up') {
+      display: none;
+    }
+  }
+
+  // ----------------------------------
+  .l-main-nav-body {
+    margin-top: 2rem;
+
+    @include utils.respond-to('tablet-up') {
+      height: auto !important;
+      margin-top: 0;
+      visibility: visible !important;
+      width: auto !important;
+    }
+  }
+
+  .c-list {
+    @include utils.respond-to('tablet-up') {
+      background-color: transparent;
+      border: 0;
+      display: flex;
+
+      &__item {
+        flex-shrink: 0;
+
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+    }
+
+    &__link {
+      @include base.use-font('medium', '18');
+      color: utils.$black-100;
+      display: inline-block;
+      padding: 1.5rem;
+      text-decoration: none;
+
+      @include utils.respond-to('tablet-up') {
+        @include base.use-font('medium', '14');
+        color: utils.$white-100;
+        padding: 0;
+      }
+    }
+
+    .separator {
+      background-color: utils.$gray-30;
+      height: 1px;
+      width: 100%;
+
+      @include utils.respond-to('tablet-up') {
+        display: none;
+      }
+    }
+  }
+}
