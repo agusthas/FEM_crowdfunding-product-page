@@ -1,0 +1,78 @@
+@use 'sass:map';
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+/// Family
+$_font-family: 'Commissioner', sans-serif;
+
+/// Weight
+$_weights: (
+  'regular': 400,
+  'medium': 500,
+  'bold': 700,
+);
+
+/// Size
+$_sizes: (
+  '32': 2rem,
+  '28': 1.75rem,
+  '24': 1.5rem,
+  '20': 1.25rem,
+  '18': 1.125rem,
+  '16': 1rem,
+  '14': 0.875rem,
+);
+
+$_temp-map: (
+  'regular': $_sizes,
+  'medium': $_sizes,
+  'bold': $_sizes,
+);
+
+body {
+  font-family: $_font-family;
+  font-size: 1rem;
+}
+
+@mixin use-font($weight, $size) {
+  $_raw-weight-query: map.get($_weights, $weight);
+  $_raw-size-query: map.get($_sizes, $size);
+
+  @if $_raw-weight-query == null and $_raw-size-query == null {
+    @error "Both `#{$weight}` and `#{$size}` are not found in map.";
+  } @else if $_raw-weight-query == null {
+    @error "`#{$weight}` is not found";
+  } @else if $_raw-size-query == null {
+    @error "`#{$size}` is not found";
+  } @else {
+    font-size: $_raw-size-query;
+    font-weight: $_raw-weight-query;
+  }
+}
+
+// @each $weight, $sizes in $_temp-map {
+//   @each $px, $rem in $sizes {
+//     $_weight-query: map.get($_weights, $weight);
+
+//     @if $_weight-query != null {
+//       .o-text-#{$weight}-#{$px} {
+//         font-size: $rem;
+//         font-weight: $_weight-query;
+//       }
+//     } @else {
+//       @error "The value of `#{$weight}` is not defined. Please check _typography.scss";
+//     }
+//   }
+// }
+
+/// Line Height
+$_line-heights: (
+  'lh-24px': 24px,
+  'lh-100': 100%,
+  'lh-170': 170%,
+  'lh-190': 190%,
+);
+
+/// Letter Spacing
+$_lsp-2: 0.002em;
+$_lsp-1: -0.003em;
+$_lsp-0: -0.03em;

@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+$breakpoints: (
+  'phone-up': '640px',
+  'tablet-up': '1024px',
+  'laptop-up': '1280px',
+);
+
+@mixin respond-to($bp) {
+  $_value: map.get($breakpoints, $bp);
+
+  @if $_value {
+    @media (min-width: $_value) {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$bp}`. ' + 'Make sure you have the right breakpoint!';
+  }
+}
