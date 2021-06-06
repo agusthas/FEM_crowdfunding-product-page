@@ -26,6 +26,10 @@ $bg-jumbo-container: utils.$light-white-100 !default;
   @include utils.respond-to('tablet-up') {
     max-width: 45.625em;
   }
+
+  > * + * {
+    margin: 1.5rem 0;
+  }
 }
 
 .u-move-top {
