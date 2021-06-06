@@ -1,0 +1,35 @@
+@use '../utils';
+@use '../base';
+
+.o-btn {
+  background-color: utils.$primary-light;
+  border: 0;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  color: utils.$white-100;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  padding: 1.125rem 2rem;
+
+  &-block {
+    max-width: 12.8125rem;
+    width: 100%;
+  }
+
+  &-wrap {
+    align-items: center;
+    display: flex;
+    padding: 0;
+  }
+
+  &-hover {
+    &:hover {
+      background-color: utils.$primary-dark;
+    }
+  }
+
+  &-text-big {
+    @include base.use-font('bold', '16');
+  }
+}

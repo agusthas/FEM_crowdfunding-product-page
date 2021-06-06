@@ -18,3 +18,20 @@ iconWrapper.addEventListener('click', (e) => {
   nav.classList.toggle('is-toggled');
   navBody.classList.toggle('is-hidden');
 });
+
+// Bookmark Button
+
+// 1. Get all elements
+const bookmarkBtn = document.querySelector('.js-bookmark');
+let bookmarkText = bookmarkBtn.querySelector('[data-text]');
+
+// 2. Add event and its handler
+bookmarkBtn.addEventListener('click', (e) => {
+  const toggled = bookmarkBtn.classList.toggle('is-bookmarked');
+
+  if (toggled) {
+    bookmarkText.dataset.text = 'Bookmarked';
+  } else {
+    bookmarkText.dataset.text = 'Bookmark';
+  }
+});

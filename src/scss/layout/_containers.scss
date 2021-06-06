@@ -15,6 +15,24 @@ $bg-jumbo-container: utils.$light-white-100 !default;
   min-height: 100vh;
 }
 
+.l-main-container {
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  @include utils.respond-to('phone-up') {
+    max-width: 40em;
+  }
+
+  @include utils.respond-to('tablet-up') {
+    max-width: 45.625em;
+  }
+}
+
+.u-move-top {
+  position: relative !important;
+  top: -56px !important;
+}
+
 // Flex or Grid
 .l-flex-full {
   display: flex;
