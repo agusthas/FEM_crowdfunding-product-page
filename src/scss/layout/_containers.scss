@@ -6,6 +6,11 @@ $bg-jumbo-container: utils.$light-white-100 !default;
   background-color: utils.$white-100;
   border: 1px solid utils.$gray-10;
   border-radius: 0.5rem;
+  padding: 2.5rem 1.5rem;
+
+  @include utils.respond-to('tablet-up') {
+    padding: 3rem;
+  }
 }
 
 .l-jumbo-container {
