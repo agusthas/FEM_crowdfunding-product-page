@@ -57,17 +57,18 @@
     }
   }
 
-  .l-main-nav-header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
-
   &__icons {
+    background-color: transparent;
+    border: 0;
     cursor: pointer;
+    padding: 0;
 
     @include utils.respond-to('tablet-up') {
       display: none;
+    }
+
+    > * {
+      pointer-events: none;
     }
   }
 
