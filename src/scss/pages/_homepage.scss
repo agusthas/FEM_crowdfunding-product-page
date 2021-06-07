@@ -1,7 +1,13 @@
+@use 'sass:math';
 @use '../utils';
 @use '../base';
 @use '../layout';
 @use '../components';
+
+.u-move-top {
+  position: relative !important;
+  top: -56px !important;
+}
 
 .header {
   background-image: url('../assets/images/image-hero-mobile.jpg');
@@ -302,6 +308,10 @@
 .c-about {
   &__title {
     @include base.use-font('bold', '18');
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('bold', '20');
+    }
   }
 
   &__paragraphs {
@@ -309,6 +319,10 @@
     color: utils.$gray-100;
     line-height: 1.7;
     margin-top: 1.5rem;
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('regular', '16');
+    }
 
     > *:not(:last-child) {
       margin-bottom: 1.5rem;
@@ -326,7 +340,12 @@
   &__item {
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
+
     position: relative;
+
+    @include utils.respond-to('phone-up') {
+      padding: 2rem;
+    }
 
     &--disabled {
       &::after {
@@ -341,14 +360,34 @@
     }
   }
 
+  &__header {
+    @include utils.respond-to('phone-up') {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   &__name {
     @include base.use-font('bold', '16');
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('bold', '18');
+    }
   }
 
   &__label {
-    @include base.use-font('regular', '14');
+    @include base.use-font('medium', '14');
     color: utils.$primary-light;
     margin-top: 0.5rem;
+
+    @include utils.respond-to('phone-up') {
+      margin: 0;
+    }
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('medium', '16');
+    }
   }
 
   &__copy {
@@ -356,11 +395,25 @@
     color: utils.$gray-100;
     line-height: 1.7;
     margin: 1.5rem 0;
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('regular', '16');
+    }
   }
 
   &__footer {
+    @include utils.respond-to('phone-up') {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
     > *:not(:last-child) {
       margin-bottom: 1.5rem;
+
+      @include utils.respond-to('phone-up') {
+        margin: 0;
+      }
     }
   }
 
@@ -375,6 +428,277 @@
       @include base.use-font('regular', '14');
       color: utils.$gray-100;
       margin-left: 0.5rem;
+    }
+  }
+}
+
+.c-modal {
+  margin: 0 auto;
+  max-width: 45.625em;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include base.use-font('bold', '18');
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('bold', '24');
+      line-height: 1;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+
+  &__subtitle {
+    @include base.use-font('regular', '14');
+    color: utils.$gray-100;
+    line-height: 1.7;
+    margin: 1.5rem 0;
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('regular', '16');
+      margin-top: 1rem;
+    }
+  }
+}
+
+.c-form {
+  > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.c-form-control {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  position: relative;
+
+  @include utils.respond-to('phone-up') {
+    padding: 2rem 1.5rem;
+  }
+
+  &--disabled::after {
+    background-color: utils.$white-50;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &.has-active {
+    border: 2px solid utils.$primary-light;
+    padding-left: calc(1.5rem - 1px);
+    padding-right: calc(1.5rem - 1px);
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+  }
+
+  &__title-wrapper {
+    margin-left: 1rem;
+
+    @include utils.respond-to('phone-up') {
+      align-items: center;
+      display: flex;
+      width: 100%;
+    }
+
+    > *:not(:last-child) {
+      margin-bottom: 0.5rem;
+
+      @include utils.respond-to('phone-up') {
+        margin: 0;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  &__name {
+    @include base.use-font('bold', '16');
+  }
+
+  &__label {
+    @include base.use-font('regular', '14');
+    color: utils.$primary-light;
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('regular', '16');
+      align-items: center;
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+  }
+
+  .label__stocks {
+    display: none;
+
+    @include utils.respond-to('phone-up') {
+      align-items: center;
+      display: flex;
+
+      .label__stock {
+        @include base.use-font('bold', '18');
+        color: utils.$black-100;
+      }
+
+      .label__text {
+        @include base.use-font('regular', '14');
+        color: utils.$gray-100;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  &__body {
+    margin: 1.5rem 0 0;
+  }
+
+  &__copy {
+    @include base.use-font('regular', '14');
+    color: utils.$gray-100;
+    line-height: 1.7;
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('regular', '16');
+      padding-inline-start: calc(1.5rem + 0.5rem);
+    }
+  }
+
+  &__stock {
+    align-items: center;
+    display: flex;
+    margin-top: 1.5rem;
+
+    @include utils.respond-to('phone-up') {
+      display: none;
+    }
+
+    .stock {
+      @include base.use-font('bold', '18');
+    }
+
+    .text {
+      @include base.use-font('regular', '14');
+      color: utils.$gray-100;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__dropdown {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    position: relative;
+
+    @include utils.respond-to('phone-up') {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &::before {
+      background-color: utils.$gray-10;
+      content: '';
+      height: 2px;
+      left: -1.5rem;
+      position: absolute;
+      right: -1.5rem;
+      top: 0;
+    }
+
+    .dropdown__title {
+      @include base.use-font('regular', '14');
+      color: utils.$gray-100;
+      line-height: 1.7;
+      margin-bottom: 1.125rem;
+      text-align: center;
+
+      @include utils.respond-to('phone-up') {
+        @include base.use-font('regular', '16');
+        margin: 0;
+      }
+    }
+
+    .dropdown__footer {
+      align-items: center;
+      display: flex;
+
+      > *:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
+    .dropdown__input-wrapper {
+      align-items: center;
+      border-radius: 9999px;
+      display: flex;
+      outline: 1px solid utils.$gray-30;
+      padding: 0.9rem 0;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .dropdown__currency {
+      @include base.use-font('bold', '14');
+      color: utils.$gray-100;
+      margin-right: 0.5em;
+    }
+
+    .dropdown__input {
+      @include base.use-font('bold', '14');
+      background-color: transparent;
+      border: 0;
+      color: utils.$black-100;
+      margin-top: 1px;
+      max-width: 3ch;
+      outline: 0;
+    }
+  }
+}
+
+.c-radio {
+  $_this: &;
+
+  &__input {
+    left: -999px;
+    position: absolute;
+  }
+
+  &__input:checked,
+  &__input:not(:checked) {
+    + #{$_this}__label {
+      border-radius: 9999px;
+      cursor: pointer;
+      display: inline-block;
+      height: 24px;
+      outline: 1px solid utils.$gray-50;
+      position: relative;
+      width: 24px;
+    }
+  }
+
+  &__input:checked {
+    + #{$_this}__label {
+      &::after {
+        background-color: utils.$primary-light;
+        border-radius: inherit;
+        content: '';
+        height: 12px;
+        left: 6px;
+        position: absolute;
+        top: 6px;
+        width: 12px;
+      }
     }
   }
 }

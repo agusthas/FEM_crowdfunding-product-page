@@ -40,10 +40,7 @@
 
     <!-- Selection modal start -->
 
-    <!-- Back this project
-  Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
-
-  Pledge with no reward
+    <!--   Pledge with no reward
   Choose to support us without a reward if you simply believe in our project. As a backer, 
   you will be signed up to receive product updates via email.
 

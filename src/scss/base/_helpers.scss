@@ -3,3 +3,40 @@
   visibility: hidden;
   width: 0;
 }
+
+.has-hide-overflow {
+  overflow: hidden;
+}
+
+.is-hidden-recurse {
+  height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden;
+  width: 0;
+
+  &::after,
+  &::before {
+    height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: hidden;
+    width: 0;
+  }
+
+  * {
+    height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: hidden;
+    width: 0;
+    &::after,
+    &::before {
+      height: 0;
+      margin: 0 !important;
+      padding: 0 !important;
+      visibility: hidden;
+      width: 0;
+    }
+  }
+}

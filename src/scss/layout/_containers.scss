@@ -8,7 +8,7 @@ $bg-jumbo-container: utils.$light-white-100 !default;
   border-radius: 0.5rem;
   padding: 2.5rem 1.5rem;
 
-  @include utils.respond-to('tablet-up') {
+  @include utils.respond-to('phone-up') {
     padding: 3rem;
   }
 }
@@ -37,9 +37,17 @@ $bg-jumbo-container: utils.$light-white-100 !default;
   }
 }
 
-.u-move-top {
-  position: relative !important;
-  top: -56px !important;
+.l-modal {
+  background-color: utils.$black-50;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 5rem 1.5rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
 }
 
 // Flex or Grid

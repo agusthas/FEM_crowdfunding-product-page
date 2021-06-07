@@ -104,7 +104,9 @@
                 c-top__btn-container
               "
             >
-              <button class="o-btn o-btn-block">Back this project</button>
+              <button class="o-btn o-btn-block js-modal-open">
+                Back this project
+              </button>
               <button class="o-btn o-btn-wrap o-bookmark js-bookmark">
                 <svg
                   class="o-bookmark__icon"
@@ -137,12 +139,14 @@
         <section class="l-box c-stats">
           <ul class="c-stats__items">
             <li class="c-stats__item">
-              <h2 class="c-stats__number">$<span>89,914</span></h2>
+              <h2 class="c-stats__number">
+                $<span data-total-backed>89,914</span>
+              </h2>
               <div class="c-stats__label">of $100,000 backed</div>
             </li>
             <div class="separator"></div>
             <li class="c-stats__item">
-              <h2 class="c-stats__number"><span>5,007</span></h2>
+              <h2 class="c-stats__number"><span data-backers>5,007</span></h2>
               <div class="c-stats__label">total backers</div>
             </li>
             <div class="separator"></div>
@@ -192,11 +196,14 @@
 
                 <div class="c-products__footer">
                   <div class="c-products__stock">
-                    <span class="stock__number">101</span>
+                    <span data-stock-bamboo class="stock__number">101</span>
                     <span class="stock__text">left</span>
                   </div>
 
-                  <button type="button" class="o-btn c-products__btn">
+                  <button
+                    type="button"
+                    class="o-btn o-btn-small c-products__btn"
+                  >
                     Select Reward
                   </button>
                 </div>
@@ -215,11 +222,14 @@
 
                 <div class="c-products__footer">
                   <div class="c-products__stock">
-                    <span class="stock__number">64</span>
+                    <span data-stock-black class="stock__number">64</span>
                     <span class="stock__text">left</span>
                   </div>
 
-                  <button type="button" class="o-btn c-products__btn">
+                  <button
+                    type="button"
+                    class="o-btn o-btn-small c-products__btn"
+                  >
                     Select Reward
                   </button>
                 </div>
@@ -242,7 +252,11 @@
                     <span class="stock__text">left</span>
                   </div>
 
-                  <button disabled type="button" class="o-btn c-products__btn">
+                  <button
+                    disabled
+                    type="button"
+                    class="o-btn o-btn-small c-products__btn"
+                  >
                     Select Reward
                   </button>
                 </div>
@@ -251,6 +265,239 @@
           </div>
         </section>
       </main>
+    </div>
+
+    <div class="l-modal js-modal is-hidden">
+      <div class="l-box c-modal">
+        <div class="c-modal__header">
+          <h2 class="c-modal__title">Back this project</h2>
+          <div class="c-modal__icon js-modal-close">
+            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
+                fill="#000"
+                fill-rule="evenodd"
+                opacity=".4"
+              />
+            </svg>
+          </div>
+        </div>
+        <p class="c-modal__subtitle">
+          Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
+          the world?
+        </p>
+
+        <div class="c-form">
+          <div data-tier="free" class="l-box c-form-control js-form-control">
+            <div class="c-form-control__header">
+              <div class="c-radio">
+                <input
+                  type="radio"
+                  name="product-group"
+                  id="no-reward"
+                  class="c-radio__input js-c-radio__input"
+                  checked
+                />
+                <label for="no-reward" class="c-radio__label"></label>
+              </div>
+
+              <div class="c-form-control__title-wrapper">
+                <h2 class="c-form-control__name">Pledge with no reward</h2>
+              </div>
+            </div>
+
+            <div class="c-form-control__body">
+              <div class="c-form-control__copy">
+                Choose to support us without a reward if you simply believe in
+                our project. As a backer, you will be signed up to receive
+                product updates via email.
+              </div>
+            </div>
+
+            <div
+              class="
+                c-dropdown
+                c-form-control__dropdown
+                js-form-control-dropdown
+              "
+            >
+              <form class="js-form">
+                <button type="submit" class="o-btn">Continue</button>
+              </form>
+            </div>
+          </div>
+
+          <div data-tier="bamboo" class="l-box c-form-control js-form-control">
+            <div class="c-form-control__header">
+              <div class="c-radio">
+                <input
+                  type="radio"
+                  name="product-group"
+                  id="bamboo"
+                  class="c-radio__input js-c-radio__input"
+                />
+                <label for="bamboo" class="c-radio__label"></label>
+              </div>
+
+              <div class="c-form-control__title-wrapper">
+                <h2 class="c-form-control__name">Bamboo Stand</h2>
+                <div class="c-form-control__label">
+                  <span>Pledge $25 or more</span>
+                  <div class="label__stocks">
+                    <span data-stock-bamboo class="label__stock">101</span>
+                    <span class="label__text">left</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="c-form-control__body">
+              <p class="c-form-control__copy">
+                You get an ergonomic stand made of natural bamboo. You've helped
+                us launch our promotional campaign, and you’ll be added to a
+                special Backer member list.
+              </p>
+
+              <div class="c-form-control__stock">
+                <span data-stock-bamboo class="stock">101</span>
+                <span class="text">left</span>
+              </div>
+            </div>
+
+            <div
+              class="
+                c-dropdown
+                c-form-control__dropdown
+                js-form-control-dropdown
+              "
+            >
+              <div class="dropdown__title">Enter your pledge</div>
+              <form class="dropdown__footer js-form">
+                <label for="donation" class="dropdown__input-wrapper">
+                  <span class="dropdown__currency">$</span>
+                  <input
+                    type="text"
+                    name="bamboo"
+                    id="donation"
+                    class="dropdown__input"
+                  />
+                </label>
+                <button
+                  data-input="bamboo"
+                  type="submit"
+                  class="o-btn o-btn-xsmall o-btn-block"
+                >
+                  Continue
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div data-tier="black" class="l-box c-form-control js-form-control">
+            <div class="c-form-control__header">
+              <div class="c-radio">
+                <input
+                  type="radio"
+                  name="product-group"
+                  id="black"
+                  class="c-radio__input js-c-radio__input"
+                />
+                <label for="black" class="c-radio__label"></label>
+              </div>
+
+              <div class="c-form-control__title-wrapper">
+                <h2 class="c-form-control__name">Black Edition Stand</h2>
+                <div class="c-form-control__label">
+                  <span>Pledge $75 or more</span>
+                  <div class="label__stocks">
+                    <span data-stock-black class="label__stock">64</span>
+                    <span class="label__text">left</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="c-form-control__body">
+              <p class="c-form-control__copy">
+                You get a Black Special Edition computer stand and a personal
+                thank you. You’ll be added to our Backer member list. Shipping
+                is included.
+              </p>
+
+              <div class="c-form-control__stock">
+                <span data-stock-black class="stock">64</span>
+                <span class="text">left</span>
+              </div>
+            </div>
+
+            <div
+              class="
+                c-dropdown
+                c-form-control__dropdown
+                js-form-control-dropdown
+              "
+            >
+              <div class="dropdown__title">Enter your pledge</div>
+              <form class="dropdown__footer js-form">
+                <label for="donation" class="dropdown__input-wrapper">
+                  <span class="dropdown__currency">$</span>
+                  <input
+                    type="text"
+                    name="black-edition"
+                    id="donation"
+                    class="dropdown__input"
+                  />
+                </label>
+                <button
+                  data-input="black-edition"
+                  type="submit"
+                  class="o-btn o-btn-xsmall o-btn-block"
+                >
+                  Continue
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="l-box c-form-control c-form-control--disabled">
+            <div class="c-form-control__header">
+              <div class="c-radio">
+                <input
+                  type="radio"
+                  name="product-group"
+                  id="mahogany"
+                  class="c-radio__input"
+                />
+                <label for="mahogany" class="c-radio__label"></label>
+              </div>
+
+              <div class="c-form-control__title-wrapper">
+                <h2 class="c-form-control__name">Mahogany Special Edition</h2>
+                <div class="c-form-control__label">
+                  <span>Pledge $200 or more</span>
+                  <div class="label__stocks">
+                    <span class="label__stock">0</span>
+                    <span class="label__text">left</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="c-form-control__body">
+              <p class="c-form-control__copy">
+                You get two Special Edition Mahogany stands, a Backer T-Shirt,
+                and a personal thank you. You’ll be added to our Backer member
+                list. Shipping is included.
+              </p>
+
+              <div class="c-form-control__stock">
+                <span class="stock">0</span>
+                <span class="text">left</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="/src/js/index.js"></script>
   </body>
