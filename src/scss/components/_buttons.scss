@@ -3,6 +3,7 @@
 
 .o-btn {
   @include base.use-font('bold', '16');
+  @include utils.transition-all();
   background-color: utils.$primary-light;
   border: 0;
   border-radius: 9999px;
