@@ -596,6 +596,7 @@
   }
 
   &__dropdown {
+    @include utils.transition-all(150ms);
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     position: relative;
@@ -699,6 +700,48 @@
         top: 6px;
         width: 12px;
       }
+    }
+  }
+}
+
+.c-accept {
+  max-width: 30em;
+  text-align: center;
+
+  &-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__header {
+    > *:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__logo {
+    > svg {
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    @include base.use-font('bold', '18');
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('bold', '24');
+    }
+  }
+
+  &__copy {
+    @include base.use-font('regular', '14');
+    color: utils.$gray-100;
+    line-height: 1.7;
+    margin: 1.5rem 0;
+
+    @include utils.respond-to('phone-up') {
+      @include base.use-font('regular', '16');
     }
   }
 }

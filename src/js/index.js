@@ -63,16 +63,6 @@ modalCloseBtn.addEventListener('click', (e) => {
   });
 });
 
-// modalCloseBtn.forEach((btn) => {
-//   btn.addEventListener('click', (e) => {
-//     document.body.style.overflow = 'auto';
-
-//     modalWrapper.forEach((modal) => {
-//       modal.classList.add('is-hidden');
-//     });
-//   });
-// });
-
 // Modal Form Control
 
 // 1. Get all elements
@@ -110,8 +100,42 @@ radioBtns.forEach((radio) => {
 
 // 1. Get all elements
 const forms = document.querySelectorAll('.js-form');
+const acceptModal = document.querySelector('.js-accept-modal');
+const acceptBtn = document.querySelector('.js-accept-button');
+
+acceptBtn.addEventListener('click', (e) => {
+  acceptModal.classList.add('is-hidden');
+});
 
 // 2. Events
+const addTotalBacked = (inputValue) => {
+  const maximumBacked = 1000;
+
+  const current = +document
+    .querySelector('[data-total-backed]')
+    .innerHTML.replace(/,/g, '');
+
+  const total = inputValue + current;
+
+  document.querySelector('[data-total-backed]').innerHTML =
+    new Intl.NumberFormat().format(total);
+
+  document.querySelector('.js-progress').style.width = `${Math.min(
+    total / 1000,
+    100,
+  )}%`;
+};
+
+const addTotalBackers = () => {
+  const currentBackers = +document
+    .querySelector('[data-backers]')
+    .innerHTML.replace(/,/g, '');
+
+  const totalBackers = currentBackers + 1;
+  document.querySelector('[data-backers]').innerHTML =
+    new Intl.NumberFormat().format(totalBackers);
+};
+
 forms.forEach((form) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -120,10 +144,13 @@ forms.forEach((form) => {
     let value = -1;
     if (tier === 'free') {
       modalCloseBtn.click();
+      addTotalBackers();
+      acceptModal.classList.remove('is-hidden');
       return;
     }
 
-    value = +e.target.querySelector('input[type="text"]').value;
+    const input = e.target.querySelector('input[type="text"]');
+    value = +input.value;
 
     if (tier === 'bamboo') {
       if (value < 25) {
@@ -132,7 +159,12 @@ forms.forEach((form) => {
         document.querySelectorAll('[data-stock-bamboo]').forEach((node) => {
           node.innerHTML = +node.innerHTML - 1;
         });
+
+        addTotalBacked(value);
+        addTotalBackers();
         modalCloseBtn.click();
+        acceptModal.classList.remove('is-hidden');
+        input.value = '';
       }
     } else if (tier === 'black') {
       if (value < 75) {
@@ -141,7 +173,12 @@ forms.forEach((form) => {
         document.querySelectorAll('[data-stock-black]').forEach((node) => {
           node.innerHTML = +node.innerHTML - 1;
         });
+
+        addTotalBacked(value);
+        addTotalBackers();
         modalCloseBtn.click();
+        acceptModal.classList.remove('is-hidden');
+        input.value = '';
       }
     }
   });
