@@ -6,6 +6,11 @@ $bg-jumbo-container: utils.$light-white-100 !default;
   background-color: utils.$white-100;
   border: 1px solid utils.$gray-10;
   border-radius: 0.5rem;
+  padding: 2.5rem 1.5rem;
+
+  @include utils.respond-to('phone-up') {
+    padding: 3rem;
+  }
 }
 
 .l-jumbo-container {
@@ -13,4 +18,56 @@ $bg-jumbo-container: utils.$light-white-100 !default;
   margin: 0 auto;
   max-width: 90em;
   min-height: 100vh;
+}
+
+.l-main-container {
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  @include utils.respond-to('phone-up') {
+    max-width: 40em;
+  }
+
+  @include utils.respond-to('tablet-up') {
+    max-width: 45.625em;
+  }
+
+  > * + * {
+    margin: 1.5rem 0;
+  }
+}
+
+.l-modal {
+  background-color: utils.$black-50;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 5rem 1.5rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+
+// Flex or Grid
+.l-flex-full {
+  display: flex;
+  width: 100%;
+}
+
+.l-flex {
+  display: flex;
+}
+
+.l-justify-center {
+  justify-content: center;
+}
+
+.l-justify-space-between {
+  justify-content: space-between;
+}
+
+.l-align-center {
+  align-items: center;
 }

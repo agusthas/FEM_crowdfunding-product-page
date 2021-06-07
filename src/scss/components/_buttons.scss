@@ -1,0 +1,44 @@
+@use '../utils';
+@use '../base';
+
+.o-btn {
+  @include base.use-font('bold', '16');
+  background-color: utils.$primary-light;
+  border: 0;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  color: utils.$white-100;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  padding: 1.125rem 2rem;
+
+  &-small {
+    @include base.use-font('bold', '14');
+    padding: 1rem 2rem;
+  }
+
+  &-xsmall {
+    @include base.use-font('bold', '14');
+    padding: 1rem 1.5rem;
+  }
+
+  &:hover {
+    background-color: utils.$primary-dark;
+  }
+
+  &-block {
+    max-width: 12.8125rem;
+    width: 100%;
+  }
+
+  &:disabled {
+    background-color: utils.$gray-100;
+  }
+
+  &-wrap {
+    align-items: center;
+    display: flex;
+    padding: 0;
+  }
+}

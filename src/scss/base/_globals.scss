@@ -1,0 +1,13 @@
+@use '../utils';
+
+body {
+  background-color: utils.$light-white-100;
+}
+
+svg {
+  display: block;
+}
+
+input {
+  font-family: inherit;
+}
