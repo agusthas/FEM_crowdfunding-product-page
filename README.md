@@ -34,7 +34,7 @@ Users should be able to:
 
 - Solution URL: https://github.com/agusthas/crowdfunding-product-page
 
-- Live Site URL: https://agusthas.github.io/crowdfunding-product-page/
+- Live Site URL: [Demo](https://agusthas.github.io/FEM_crowdfunding-product-page/)
 
 ## My process
 
